@@ -16,27 +16,27 @@ class TestCustomer < MiniTest::Test
     ]
 
     pub_food = [
-      @steamed_hams = Food.new("Steamed Hams", 4, 3),
-      @steamed_clams = Food.new("Steamed Clams", 5, 5),
-      @grilled_burgers = Food.new("Grilled Burgers", 2, 3),
-      @gruel = Food.new("Gruel", 1, 1)
+      @chicken_burger = Food.new("Chicken burger", 6, 3),
+      @steak_pie = Food.new("Steak pie", 7, 5),
+      @pizza = Food.new("Pizza", 8, 3),
+      @tacos = Food.new("Tacos", 5, 1)
     ]
 
-    @pub = Pub.new("The Kebab and Calculator", 0, pub_drinks, pub_food)
+    @pub = Pub.new("The Beveridge Tap", 0, pub_drinks, pub_food)
 
-    @customer = Customer.new("Homer", 100, 42, 0)
+    @customer = Customer.new("Andrew", 100, 25, 0)
 
   end
 
   def test_customer_getters
-    assert_equal("Homer", @customer.name)
+    assert_equal("Andrew", @customer.name)
     assert_equal(100, @customer.wallet)
-    assert_equal(42, @customer.age)
+    assert_equal(25, @customer.age)
   end
 
   def test_buy_drink
-    @customer.buy_drink(@wine)
-    assert_equal(96, @customer.wallet)
+    @customer.buy_drink(@ipa)
+    assert_equal(95, @customer.wallet)
   end
 
   def test_can_buy_drink?
@@ -50,8 +50,8 @@ class TestCustomer < MiniTest::Test
   end
 
   def test_buy_food
-    @customer.buy_food(@steamed_hams)
-    assert_equal(96, @customer.wallet)
+    @customer.buy_food(@pizza)
+    assert_equal(92, @customer.wallet)
   end
 
 
