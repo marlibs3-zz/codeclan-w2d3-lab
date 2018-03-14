@@ -20,24 +20,36 @@ class Customer
     @age >= 18 && @drunkenness < 8
   end
 
-  def buy_drink(pub, drink_to_buy)
+  def buy_drink(drink_to_buy)
     if can_buy_drink?
-      # removie drink from pub inventory
-      pub.drinks.delete_if {|drinks| drinks == drink_to_buy}
-      # take money from customer
       @wallet -= drink_to_buy.price
-      # put money in till
-      pub.till += drink_to_buy.price
-      # add alcohol level to customer drunkenness
       @drunkenness += drink_to_buy.alcohol_level
     end
   end
 
-  def buy_food(pub, food_to_buy)
-    pub.food.delete_if {|food| food == food_to_buy}
+  def buy_food(food_to_buy)
     @wallet -= food_to_buy.price
-    pub.till += food_to_buy.price
     @drunkenness -= food_to_buy.rejuvenation_level
   end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 end

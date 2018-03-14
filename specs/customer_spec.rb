@@ -35,9 +35,7 @@ class TestCustomer < MiniTest::Test
   end
 
   def test_buy_drink
-    @customer.buy_drink(@pub, @wine)
-    assert_equal(3, @pub.drinks.length)
-    assert_equal(4, @pub.till)
+    @customer.buy_drink(@wine)
     assert_equal(96, @customer.wallet)
   end
 
@@ -46,16 +44,24 @@ class TestCustomer < MiniTest::Test
   end
 
   def test_can_buy_drink__drunkenness
-    @customer.buy_drink(@pub, @wine)
-    @customer.buy_drink(@pub, @cocktail)
+    @customer.buy_drink(@wine)
+    @customer.buy_drink(@cocktail)
     assert_equal(false, @customer.can_buy_drink?)
   end
 
   def test_buy_food
-    @customer.buy_food(@pub, @steamed_hams)
-    assert_equal(3, @pub.food.length)
-    assert_equal(4, @pub.till)
+    @customer.buy_food(@steamed_hams)
     assert_equal(96, @customer.wallet)
   end
+
+
+
+
+
+
+
+
+
+
 
 end
