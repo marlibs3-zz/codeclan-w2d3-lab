@@ -2,6 +2,7 @@ require('minitest/autorun')
 require_relative('../customer.rb')
 require_relative('../pub.rb')
 require_relative('../drink.rb')
+require_relative('../food.rb')
 
 class TestCustomer < MiniTest::Test
 
@@ -14,7 +15,14 @@ class TestCustomer < MiniTest::Test
       @cocktail = Drink.new("Cocktail", 6, 5)
     ]
 
-    @pub = Pub.new("The Kebab and Calculator", 0, pub_drinks)
+    pub_food = [
+      @steamed_hams = Food.new("Steamed Hams", 4, 3),
+      @steamed_clams = Food.new("Steamed Clams", 5, 5),
+      @grilled_burgers = Food.new("Grilled Burgers", 2, 3),
+      @gruel = Food.new("Gruel", 1, 1)
+    ]
+
+    @pub = Pub.new("The Kebab and Calculator", 0, pub_drinks, pub_food)
 
     @customer = Customer.new("Homer", 100, 42, 0)
 
@@ -41,6 +49,13 @@ class TestCustomer < MiniTest::Test
     @customer.buy_drink(@pub, @wine)
     @customer.buy_drink(@pub, @cocktail)
     assert_equal(false, @customer.can_buy_drink?)
+  end
+
+  def test_buy_food
+    @customer.buy_food(@pub, @steamed_hams)
+    assert_equal(3, @pub.food.length)
+    assert_equal(4, @pub.till)
+    assert_equal(96, @customer.wallet)
   end
 
 end

@@ -33,4 +33,11 @@ class Customer
     end
   end
 
+  def buy_food(pub, food_to_buy)
+    pub.food.delete_if {|food| food == food_to_buy}
+    @wallet -= food_to_buy.price
+    pub.till += food_to_buy.price
+    @drunkenness -= food_to_buy.rejuvenation_level
+  end
+
 end
