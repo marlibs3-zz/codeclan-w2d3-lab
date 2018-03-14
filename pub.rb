@@ -1,23 +1,14 @@
 class Pub
 
   attr_reader :name
-  attr_accessor :till, :drinks, :food, :stock
+  attr_accessor :till, :drinks, :food
 
   def initialize(name, till, drinks, food)
     @name = name
     @till = till
     @drinks = drinks
     @food = food
-    @stock = {}
   end
-
-  # def add_stock(drink)
-  #   # push drink onto @stock[drink.name]
-  # end
-  #
-  # def remove_stock(drink)
-  #
-  # end
 
   def sell_drink(drink_to_sell)
     @drinks.delete_if {|drinks| drinks == drink_to_sell}
@@ -28,7 +19,6 @@ class Pub
     @food.delete_if {|food| food == food_to_sell}
     @till += food_to_sell.price
   end
-
 
 
 

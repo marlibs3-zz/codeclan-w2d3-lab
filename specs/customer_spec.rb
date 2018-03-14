@@ -9,17 +9,17 @@ class TestCustomer < MiniTest::Test
   def setup
 
     pub_drinks = [
-      @ipa = Drink.new("IPA", 5, 3),
-      @wine = Drink.new("Glass of wine", 4, 4),
-      @lager = Drink.new("Lager", 3, 2),
-      @cocktail = Drink.new("Cocktail", 6, 5)
+      @ipa = Drink.new("IPA", 5, 3, 100),
+      @wine = Drink.new("Glass of wine", 4, 4, 100),
+      @lager = Drink.new("Lager", 3, 2, 100),
+      @cocktail = Drink.new("Cocktail", 6, 5, 100)
     ]
 
     pub_food = [
-      @chicken_burger = Food.new("Chicken burger", 6, 3),
-      @steak_pie = Food.new("Steak pie", 7, 5),
-      @pizza = Food.new("Pizza", 8, 3),
-      @tacos = Food.new("Tacos", 5, 1)
+      @chicken_burger = Food.new("Chicken burger", 6, 3, 20),
+      @steak_pie = Food.new("Steak pie", 7, 5, 20),
+      @pizza = Food.new("Pizza", 8, 3, 20),
+      @tacos = Food.new("Tacos", 5, 1, 20)
     ]
 
     @pub = Pub.new("The Beveridge Tap", 0, pub_drinks, pub_food)
