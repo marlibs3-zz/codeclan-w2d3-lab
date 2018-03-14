@@ -7,10 +7,10 @@ class TestPub < MiniTest::Test
   def setup
 
     pub_drinks = [
-      Drink.new("IPA", 5),
-      Drink.new("Glass of wine", 4),
-      Drink.new("Lager", 3),
-      Drink.new("Cocktail", 6)
+      Drink.new("IPA", 5, 3),
+      Drink.new("Glass of wine", 4, 4),
+      Drink.new("Lager", 3, 2),
+      Drink.new("Cocktail", 6, 5)
     ]
 
     @pub = Pub.new("The Kebab and Calculator", 0, pub_drinks)
