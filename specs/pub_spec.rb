@@ -41,20 +41,9 @@ class TestPub < MiniTest::Test
     assert_equal(8, @pub.till)
   end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  def test_check_total_value_drinks
+    @pub.check_total_value_drinks()
+    assert_equal(1800, 1800)
+  end
 
 end

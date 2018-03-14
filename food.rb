@@ -1,6 +1,7 @@
 class Food
 
-attr_reader :name, :price, :rejuvenation_level, :stock
+attr_accessor :name, :price, :rejuvenation_level
+attr_accessor :stock
 
   def initialize(name, price, rejuvenation_level, stock)
     @name = name

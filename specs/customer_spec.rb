@@ -54,14 +54,4 @@ class TestCustomer < MiniTest::Test
     assert_equal(92, @customer.wallet)
   end
 
-
-
-
-
-
-
-
-
-
-
 end
